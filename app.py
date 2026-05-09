@@ -1,12 +1,3 @@
-import sys
-import types
-
-# pydub tries to import audioop/pyaudioop which doesn't exist in Python 3.13
-# patch it with a dummy module before gradio imports pydub
-dummy = types.ModuleType("audioop")
-sys.modules["audioop"] = dummy
-sys.modules["pyaudioop"] = dummy
-
 import gradio as gr
 from src.inference import InferenceEngine
 
